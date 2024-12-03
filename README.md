@@ -8,6 +8,7 @@ Ficus22 = Esteban (pas en node)
 Pierre = 
 
 Rayanekerr = Rayane KERROUCHE XD
+
 mot clés du projet : 
 Inventory Management System (IMS)
 Small Business
