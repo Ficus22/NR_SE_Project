@@ -1,0 +1,86 @@
+*1. Page de Connexion*
+- *Éléments :*
+  - Champs : Nom d'utilisateur et Mot de passe
+  - Bouton : *Connexion*
+  - Lien : *Mot de passe oublié*
+- *Optionnel :*
+  - Lien pour *Créer un compte* si nécessaire.
+
+---
+
+### *2. Tableau de bord (Home)*
+- *Barre latérale :*
+  - *Tableau de bord*
+  - *Articles*
+  - *Notifications*
+  - *Rapports*
+  - *Paramètres*
+  - *Déconnexion*
+- *Contenu principal :*
+  - Cartes de résumé :
+    - *Total des articles*
+    - *Articles en stock faible*
+    - *Alertes récentes*
+  - Graphique :
+    - Répartition des catégories (camembert, barres, etc.)
+  - Tableau :
+    - *Activités récentes* (ajouts, suppressions, mises à jour).
+
+---
+
+### *3. Gestion des articles (CRUD Articles)*
+- *Tableau des articles :*
+  - Colonnes : Nom, Catégorie, Quantité, Prix, Actions (Modifier, Supprimer)
+  - Barre de recherche et filtres : Nom, Catégorie, Stock faible, etc.
+- *Boutons :*
+  - *Ajouter un article*
+  - *Modifier* (dans la ligne du tableau)
+  - *Supprimer* (dans la ligne du tableau)
+
+---
+
+### *4. Notifications*
+- *Liste des alertes :*
+  - Alertes de stock faible
+  - Erreurs système ou avertissements
+- *Actions :*
+  - Bouton : *Marquer tout comme lu*
+  - Bouton : *Supprimer une notification*
+
+---
+
+### *5. Rapports*
+- *Formulaire de filtres :*
+  - Date de début / Date de fin
+  - Catégorie ou article spécifique
+- *Affichage des rapports :*
+  - Graphique : tendances des stocks, articles populaires.
+  - Tableau : liste détaillée des données filtrées.
+- *Boutons :*
+  - *Générer un rapport*
+  - *Exporter en PDF/CSV*
+
+---
+
+### *6. Paramètres*
+- *Options utilisateur :*
+  - Modifier le profil (nom, email, mot de passe).
+  - Activer/Désactiver les notifications par email.
+- *Options système :*
+  - Définir le seuil de stock faible par défaut.
+  - Sauvegardes automatiques.
+
+---
+
+### *7. Page d'erreur (404 ou accès interdit)*
+- *Message d'erreur* : "Page introuvable" ou "Accès non autorisé".
+- *Bouton :* Retourner à l'accueil.
+
+---
+
+### Boutons globaux (accessibles dans plusieurs pages) :
+- *Ajouter un article* (visible sur toutes les pages de gestion).
+- *Actualiser les données* (recharger les informations en temps réel).
+- *Rechercher* (dans les tables, avec filtres contextuels).
+- *Déconnexion* (menu utilisateur).
+le chat a proposé ca
