@@ -22,6 +22,11 @@ const Article = db.define('Article', {
     price: {
         type: DataTypes.FLOAT,
         allowNull: false
+    },
+    stockThreshold: {
+        type: DataTypes.INTEGER,
+        defaultValue: 5,  // Seuil minimum par défaut
+        allowNull: false
     }
 }, {
     timestamps: false
