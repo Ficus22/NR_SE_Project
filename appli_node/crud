@@ -45,7 +45,9 @@ Alertes
 Endpoints :
 GET /api/alerts : Récupérer les alertes critiques (ex. : articles en rupture de stock).
 POST /api/alerts/notify : Envoyer une alerte aux utilisateurs.
+
 3. Organisation des Entités Domain
+
 Article
 Attributs : id, nom, catégorie, description, quantité, prix, seuil de stock.
 Utilisateur
