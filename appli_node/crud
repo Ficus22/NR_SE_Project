@@ -27,7 +27,9 @@ Endpoints :
 GET /api/report/{id} : Télécharger un rapport spécifique.
 POST /api/report : Générer un nouveau rapport.
 DELETE /api/report/{id} : Supprimer un rapport.
+
 2. Actions non CRUD
+
 Gestion des stocks
 Endpoints :
 GET /api/article/low-stock : Récupérer la liste des articles avec un stock faible.
