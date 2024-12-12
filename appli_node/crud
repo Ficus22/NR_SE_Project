@@ -21,6 +21,7 @@ GET /api/notification/{id} : Récupérer les détails d'une notification.
 GET /api/notification : Lister toutes les notifications.
 POST /api/notification : Ajouter une nouvelle notification.
 DELETE /api/notification/{id} : Supprimer une notification.
+
 Rapport
 Endpoints :
 GET /api/report/{id} : Télécharger un rapport spécifique.
