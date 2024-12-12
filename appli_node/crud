@@ -6,6 +6,7 @@ GET /api/article : Lister tous les articles.
 POST /api/article : Ajouter un nouvel article.
 PUT /api/article/{id} : Mettre à jour un article existant.
 DELETE /api/article/{id} : Supprimer un article.
+
 Utilisateur (User)
 Endpoints :
 GET /api/user/{id} : Récupérer les informations d'un utilisateur spécifique.
