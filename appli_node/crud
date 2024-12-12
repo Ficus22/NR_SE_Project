@@ -50,9 +50,12 @@ POST /api/alerts/notify : Envoyer une alerte aux utilisateurs.
 
 Article
 Attributs : id, nom, catégorie, description, quantité, prix, seuil de stock.
+
 Utilisateur
 Attributs : id, nom, email, rôle, mot de passe.
+
 Notification
 Attributs : id, message, type (alerte, info), statut (lu/non lu), date.
+
 Rapport
 Attributs : id, type, contenu, date de création.
