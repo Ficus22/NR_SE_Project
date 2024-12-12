@@ -34,11 +34,13 @@ Gestion des stocks
 Endpoints :
 GET /api/article/low-stock : Récupérer la liste des articles avec un stock faible.
 PATCH /api/article/{id}/update-stock : Mettre à jour la quantité en stock d'un article.
+
 Authentification et autorisation
 Endpoints :
 POST /api/auth/login : Authentifier un utilisateur.
 POST /api/auth/logout : Déconnecter un utilisateur.
 POST /api/auth/register : Inscrire un nouvel utilisateur.
+
 Alertes
 Endpoints :
 GET /api/alerts : Récupérer les alertes critiques (ex. : articles en rupture de stock).
