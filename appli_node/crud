@@ -14,6 +14,7 @@ GET /api/user : Lister tous les utilisateurs.
 POST /api/user : Ajouter un nouvel utilisateur.
 PUT /api/user/{id} : Mettre à jour un utilisateur.
 DELETE /api/user/{id} : Supprimer un utilisateur.
+
 Notification
 Endpoints :
 GET /api/notification/{id} : Récupérer les détails d'une notification.
