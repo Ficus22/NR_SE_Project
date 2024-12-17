@@ -1,8 +1,0 @@
-ID,Nom,Catégorie,Quantité,Prix (€),Seuil,Statut
-11,Article Sous Seuil,Catégorie A,2,19.99,5,En Alerte
-12,Article 2 Sous Seuil,Catégorie A,4,19.99,5,En Alerte
-2,Pantalon noir,Vêtements,6,19.99,5,Normal
-4,Casquette bleue,Accessoires,7,9.99,5,Normal
-5,Casquette bleue,Accessoires,7,9.99,5,Normal
-7,Sweat à capuche,Vêtements,8,35.99,3,Normal
-9,Article Modifié,Catégorie A,6,19.99,5,Normal
