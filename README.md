@@ -5,7 +5,7 @@ Maiaroca = Maïa
 
 Ficus22 = Esteban (he doesn't have node)
 
-Pierre = PiAirCarre
+PiAirCarre = Pierre REYNAUD
 
 Rayanekerr = Rayane KERROUCHE 
 
