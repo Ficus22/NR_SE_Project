@@ -63,6 +63,11 @@ Here’s a fair and concise write-up for the README file based on your team's co
 
 ---
 
+## Branching Strategy
+For this project, we initially started our development on the develop branch. As we progressed, we decided to switch and consolidate all our work onto the main branch, which now serves as the primary branch for the project.
+
+However, we have chosen to keep the develop branch intact as a reference. This branch contains the earlier stages of development and can be used to review the progress and decisions made during the initial phase of the project. It serves as a support branch in case there's a need to trace back or evaluate past implementations.
+
 ### Project Responsibilities
 
 #### **Rayane (Backend Development Lead & Project Coordinator)**
