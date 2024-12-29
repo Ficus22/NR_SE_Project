@@ -7,6 +7,7 @@ import AddArticle from '../components/AddArticle';
 const Dashboard = () => {
     const [articles, setArticles] = useState([]);
     const [alertCount, setAlertCount] = useState(0);
+    const [sortCriteria, setSortCriteria] = useState('name'); // Default sort by name
     const [editingArticleId, setEditingArticleId] = useState(null);
     const [editedArticle, setEditedArticle] = useState(null);
     const navigate = useNavigate();
@@ -68,6 +69,20 @@ const Dashboard = () => {
         }
     };
 
+    // Function to sort articles based on the selected criteria
+    const getSortedArticles = () => {
+        return [...articles].sort((a, b) => {
+            if (sortCriteria === 'name') {
+                return a.name.localeCompare(b.name); // Sort alphabetically by name
+            } else if (sortCriteria === 'category') {
+                return a.category.localeCompare(b.category); // Sort alphabetically by category
+            } else if (sortCriteria === 'quantity') {
+                return b.quantity - a.quantity; // Sort numerically by remaining stock (descending)
+            }
+            return 0;
+        });
+    };
+
     return (
         <div className="page-container">
             <h1 className="page-title">Dashboard</h1>
@@ -101,7 +116,18 @@ const Dashboard = () => {
             </div>
 
             <div className="card mt-8">
-                <h2 className="card-title">Articles List</h2>
+                <div className="flex justify-between items-center">
+                    <h2 className="card-title">Articles List</h2>
+                    <select
+                        value={sortCriteria}
+                        onChange={(e) => setSortCriteria(e.target.value)}
+                        className="sort-select"
+                    >
+                        <option value="name">Sort by Name</option>
+                        <option value="category">Sort by Category</option>
+                        <option value="quantity">Sort by Remaining Stock</option>
+                    </select>
+                </div>
                 <table className="table">
                     <thead>
                     <tr className="table-header">
@@ -115,7 +141,7 @@ const Dashboard = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {articles.map((article) => (
+                    {getSortedArticles().map((article) => (
                         <tr
                             key={article.id}
                             className={`table-row ${
