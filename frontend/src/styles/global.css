@@ -1,0 +1,7 @@
+.alert-row {
+    background-color: #ffcccc; /* Light red background */
+}
+
+.alert-row:hover {
+    background-color: #ff9999; /* Slightly darker red on hover */
+}

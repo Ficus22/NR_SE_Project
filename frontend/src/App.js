@@ -7,6 +7,7 @@ import Reports from './pages/Reports';
 import Alerts from './pages/Alerts';
 import ArticleTable from './components/ArticleTable'; // Import the ArticleTable component
 import StockBarChart from './components/StockBarChart'; // Import the StockBarChart component
+import './styles/global.css';
 
 // Function to check if the user is authenticated
 const isAuthenticated = () => {
