@@ -9,7 +9,7 @@ import ArticleTable from './components/ArticleTable'; // Import the ArticleTable
 import StockBarChart from './components/StockBarChart'; // Import the StockBarChart component
 import './styles/global.css';
 
-// Function to check if the user is authenticated
+// Function to check if the user is  authenticated
 const isAuthenticated = () => {
     return !!localStorage.getItem('token'); // Returns true if a token exists in localStorage
 };
