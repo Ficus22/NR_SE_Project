@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import for navigation
 import { fetchArticles } from '../services/articleService';
+import StockBarChart from '../components/StockBarChart'; // Import the StockBarChart component
 
 const Dashboard = () => {
     const [articles, setArticles] = useState([]);
     const [alertCount, setAlertCount] = useState(0);
+    const navigate = useNavigate(); // Initialize navigation
 
-    // Charger les articles et compter les alertes
+    // Load articles and count alerts
     useEffect(() => {
         const getArticles = async () => {
             try {
@@ -14,7 +17,7 @@ const Dashboard = () => {
                 const alerts = data.filter((article) => article.quantity < article.stockThreshold).length;
                 setAlertCount(alerts);
             } catch (error) {
-                console.error('Erreur lors du chargement des articles :', error);
+                console.error('Error loading articles:', error);
             }
         };
         getArticles();
@@ -22,12 +25,12 @@ const Dashboard = () => {
 
     return (
         <div className="page-container">
-            {/* Titre principal */}
-            <h1 className="page-title">Tableau de Bord</h1>
+            {/* Main title */}
+            <h1 className="page-title">Dashboard</h1>
 
-            {/* Cartes statistiques */}
+            {/* Statistics cards */}
             <div className="grid grid-cols-2 gap-6">
-                {/* Carte : Total Articles */}
+                {/* Card: Total Articles */}
                 <div className="dashboard-card">
                     <div>
                         <div className="label">Total Articles</div>
@@ -36,26 +39,32 @@ const Dashboard = () => {
                     <div className="icon">📦</div>
                 </div>
 
-                {/* Carte : Articles en Alerte */}
+                {/* Card: Articles in Alert */}
                 <div className="dashboard-card">
                     <div>
-                        <div className="label">Articles en Alerte</div>
+                        <div className="label">Articles in Alert</div>
                         <div className="number text-red-500">{alertCount}</div>
                     </div>
                     <div className="icon">⚠️</div>
                 </div>
             </div>
 
-            {/* Tableau des articles */}
+            {/* Bar Chart */}
             <div className="card mt-8">
-                <h2 className="card-title">Liste des Articles</h2>
+                <h2 className="card-title">Stock Overview</h2>
+                <StockBarChart /> {/* Embed the bar chart here */}
+            </div>
+
+            {/* Articles table */}
+            <div className="card mt-8">
+                <h2 className="card-title">Articles List</h2>
                 <table className="table">
                     <thead>
                     <tr className="table-header">
                         <th className="table-cell">ID</th>
-                        <th className="table-cell">Nom</th>
-                        <th className="table-cell">Quantité</th>
-                        <th className="table-cell">Seuil</th>
+                        <th className="table-cell">Name</th>
+                        <th className="table-cell">Quantity</th>
+                        <th className="table-cell">Threshold</th>
                     </tr>
                     </thead>
                     <tbody>
