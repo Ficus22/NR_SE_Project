@@ -7,8 +7,110 @@ Ficus22 = Esteban (he doesn't have node)
 
 Pierre = PiAirCarre
 
-Rayanekerr = Rayane KERROUCHE XD
+Rayanekerr = Rayane KERROUCHE 
 
+
+# Project Initialization Guide
+
+## Step 1: Backend Setup
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+2. Initialize a new Node.js project
+    ```bash
+    npm init -y
+3. Install the required dependencies
+    ```bash
+    npm install express sequelize mysql2 dotenv bcrypt jsonwebtoken morgan swagger-ui-express csv-writer pdfkit
+4. Install development dependencies (optional)
+    ```bash
+    npm install --save-dev nodemon
+5. Create a .env file in the backend directory and configure your environment variables : 
+DB_HOST=your_db_host
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_NAME=your_db_name
+JWT_SECRET=your_jwt_secret
+PORT=3000
+6. Start the development server
+    ```bash
+    npm run dev
+
+## Step 2 : Frontend Setup
+1. Navigate to the frontend directory
+    ```bash
+    cd frontend
+
+2. Initialize a new React app
+    ```bash
+    npx create-react-app .
+
+3. Install the required dependencies
+    ```bash
+    npm install axios react-router-dom react-toastify @heroicons/react chart.js react-chartjs-2 ag-grid-react ag-grid-community highcharts highcharts-react-official
+4. Start the frontend development server
+    ```bash
+    npm start
+
+# Running the Project
+Ensure both backend and frontend servers are running:
+
+Backend: http://localhost:3000
+Frontend: http://localhost:3001
+Test the API endpoints using Postman or Swagger UI.
+Here’s a fair and concise write-up for the README file based on your team's contributions:
+
+---
+
+### Project Responsibilities
+
+#### **Rayane (Backend Development Lead & Project Coordinator)**
+- **Database Design and Integration**:
+  - Defined the MySQL schema for articles and users.
+  - Implemented Sequelize models (`Article.js` and `User.js`) to match the schema.
+  - Ensured database synchronization and connectivity with Sequelize.
+- **API Development**:
+  - Developed and tested all article-related endpoints:
+    - `GET /api/articles`: Retrieve all articles.
+    - `POST /api/articles`: Add a new article.
+    - `PUT /api/articles/:id`: Update an article.
+    - `DELETE /api/articles/:id`: Delete an article.
+    - `GET /api/articles/alerts`: Retrieve articles below the stock threshold.
+  - Built authentication and authorization middleware (`authMiddleware.js`).
+  - Created user authentication routes (`/api/users/login` and `/api/users/register`).
+- **Testing & Documentation**:
+  - Wrote Postman test cases for all API routes.
+  - Created Swagger documentation for backend endpoints.
+
+#### **Pierre (Frontend Development Lead)**
+- **Frontend Implementation**:
+  - Developed core React components:
+    - **Dashboard**: Displayed stock statistics and charts using Chart.js.
+    - **Article Management**: Built forms for adding, updating, and deleting articles.
+  - Styled the UI using Tailwind CSS for a clean, responsive design.
+- **Backend Integration**:
+  - Integrated all CRUD operations with the backend API.
+  - Implemented error handling for failed API calls.
+- **Data Visualization**:
+  - Added bar charts for stock visualization.
+  - Highlighted articles below the stock threshold with visual indicators.
+
+#### **Maia (Full-Stack Support & Testing Lead)**
+- **Backend Support**:
+  - Assisted with user authentication routes (`/login`, `/register`).
+  - Ensured middleware functionality for protected routes.
+- **Frontend Enhancements**:
+  - Improved UX by adding navigation and dropdowns for easier management.
+  - Debugged UI issues and ensured cross-device responsiveness.
+- **Documentation & Deployment**:
+  - Prepared Postman collections for testing.
+  - Helped document API routes and wrote a setup guide for running the project locally.
+
+---
+
+### Acknowledgment
+Rayane played a key role in leading the backend development and overall project coordination. Pierre contributed significantly to the frontend, while Maia supported both ends and ensured the system’s robustness through testing and debugging. 
 
 ## Web page overview :
 First we have the login page.

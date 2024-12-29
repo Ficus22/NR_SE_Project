@@ -3,16 +3,16 @@
   "info": {
     "title": "API de Gestion d'Inventaire",
     "version": "1.0.0",
-    "description": "Documentation de l'API pour gérer les articles et les utilisateurs."
+    "description": "Documentation de l'API pour gérer les articles et les utilisateurs." // Informations générales de l'API.
   },
   "servers": [
-    {"url": "http://localhost:3000", "description": "Local server"}
+    {"url": "http://localhost:3000", "description": "Local server"} // Point d'entrée principal pour tester en local.
   ],
   "paths": {
     "/api/articles": {
       "get": {
         "summary": "Obtenir tous les articles",
-        "description": "Retourne la liste de tous les articles.",
+        "description": "Retourne la liste de tous les articles.", // Documentation pour la récupération de tous les articles.
         "responses": {
           "200": {
             "description": "Liste des articles retournée avec succès.",
@@ -21,7 +21,7 @@
                 "example": [
                   {"id": 1, "name": "Article 1", "category": "Catégorie A", "price": 20.0},
                   {"id": 2, "name": "Article 2", "category": "Catégorie B", "price": 30.0}
-                ]
+                ] // Exemple de réponse renvoyée.
               }
             }
           }
@@ -39,7 +39,7 @@
                 "category": "Chaussures",
                 "quantity": 10,
                 "price": 59.99
-              }
+              } // Exemple de payload requis pour ajouter un article.
             }
           }
         },
@@ -54,18 +54,18 @@
                   "category": "Chaussures",
                   "quantity": 10,
                   "price": 59.99
-                }
+                } // Exemple de réponse si l'ajout est réussi.
               }
             }
           },
-          "400": {"description": "Données invalides."}
+          "400": {"description": "Données invalides."} // Message en cas d'erreur dans les données envoyées.
         }
       }
     },
     "/api/articles/{id}": {
       "get": {
         "summary": "Obtenir un article par ID",
-        "description": "Retourne les détails d'un article spécifique.",
+        "description": "Retourne les détails d'un article spécifique.", // Documentation pour récupérer un article via son ID.
         "parameters": [
           {"name": "id", "in": "path", "required": true, "description": "ID de l'article", "schema": {"type": "integer"}}
         ],
@@ -84,7 +84,7 @@
               }
             }
           },
-          "404": {"description": "Article non trouvé."}
+          "404": {"description": "Article non trouvé."} // Message si l'ID fourni ne correspond à aucun article.
         }
       },
       "put": {
@@ -102,7 +102,7 @@
                 "category": "Chaussures",
                 "quantity": 15,
                 "price": 49.99
-              }
+              } // Exemple de payload requis pour mettre à jour un article.
             }
           }
         },

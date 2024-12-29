@@ -1,6 +1,6 @@
 const express = require('express');
-const cors = require('cors'); // Importer le middleware CORS
-const morgan = require('morgan');
+const cors = require('cors'); // Importer le middleware CORS pour gérer les requêtes cross-origin
+const morgan = require('morgan'); // Middleware pour logger les requêtes HTTP
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./docs/swagger.json');
 const db = require('./config/database');
@@ -8,9 +8,9 @@ const db = require('./config/database');
 const app = express();
 
 // Middlewares
-app.use(cors()); // Autoriser les requêtes cross-origin
-app.use(express.json()); // Analyser les requêtes JSON
-app.use(morgan('dev')); // Logger les requêtes HTTP
+app.use(cors()); // Autoriser les requêtes provenant d'autres domaines
+app.use(express.json()); // Analyser les requêtes avec un payload JSON
+app.use(morgan('dev')); // Log des requêtes HTTP en mode développement
 
 // Route de test
 app.get('/', (req, res) => {
@@ -25,17 +25,17 @@ db.sync()
     .catch(err => console.error('Erreur lors de la synchronisation :', err));
 
 // Importation des routes
-const articleRoutes = require('./routes/articleRoutes');
-const userRoutes = require('./routes/userRoutes');
-const reportRoutes = require('./routes/reports');
+const articleRoutes = require('./routes/articleRoutes'); // Routes pour la gestion des articles
+const userRoutes = require('./routes/userRoutes'); // Routes pour la gestion des utilisateurs et l'authentification
+const reportRoutes = require('./routes/reports'); // Routes pour la génération de rapports (CSV, PDF)
 
 // Utilisation des routes
-app.use('/api/articles', articleRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/reports', reportRoutes);
+app.use('/api/articles', articleRoutes); // Gestion des articles
+app.use('/api/users', userRoutes); // Gestion des utilisateurs
+app.use('/api/reports', reportRoutes); // Gestion des rapports
 
 // Swagger Documentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)); // Documentation interactive des API
 
 // Démarrage du serveur
 const PORT = 3000;

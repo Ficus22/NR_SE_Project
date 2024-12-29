@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { Sequelize } = require('sequelize'); // Assure-toi d'importer Sequelize
+const { Sequelize } = require('sequelize'); // Sequelize pour les requêtes conditionnelles
 const Article = require('../models/Article');
 const authMiddleware = require('../middlewares/authMiddleware');
 
+// Route pour obtenir les articles en alerte (quantité < stockThreshold)
 router.get('/alerts', async (req, res) => {
     try {
         console.log('Début du traitement pour /alerts');
 
+        // Récupère les articles où la quantité est en dessous du seuil
         const articles = await Article.findAll({
             where: {
                 quantity: {
@@ -29,9 +31,11 @@ router.get('/alerts', async (req, res) => {
         res.status(500).json({ error: 'Erreur lors de la récupération des alertes.' });
     }
 });
-// Obtenir tous les articles (route publique)
+
+// Route publique : Obtenir tous les articles
 router.get('/', async (req, res) => {
     try {
+        // Retourne tous les articles de la base de données
         const articles = await Article.findAll();
         res.json(articles);
     } catch (err) {
@@ -39,10 +43,11 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Ajouter un nouvel article (protégé)
+// Route protégée : Ajouter un nouvel article
 router.post('/', authMiddleware, async (req, res) => {
-    const { name, category, quantity, price, stockThreshold } = req.body; // Inclure stockThreshold
+    const { name, category, quantity, price, stockThreshold } = req.body; // Données nécessaires
     try {
+        // Crée un nouvel article dans la base
         const newArticle = await Article.create({ name, category, quantity, price, stockThreshold });
         res.status(201).json(newArticle);
     } catch (err) {
@@ -50,9 +55,10 @@ router.post('/', authMiddleware, async (req, res) => {
     }
 });
 
-// Obtenir un article spécifique (route publique)
+// Route publique : Obtenir un article par ID
 router.get('/:id', async (req, res) => {
     try {
+        // Trouve un article par son ID
         const article = await Article.findByPk(req.params.id);
         if (!article) return res.status(404).json({ error: 'Article non trouvé.' });
         res.json(article);
@@ -61,13 +67,15 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Mettre à jour un article (protégé)
+// Route protégée : Mettre à jour un article
 router.put('/:id', authMiddleware, async (req, res) => {
-    const { name, category, quantity, price, stockThreshold } = req.body; // Inclure stockThreshold
+    const { name, category, quantity, price, stockThreshold } = req.body; // Données à mettre à jour
     try {
+        // Vérifie si l'article existe
         const article = await Article.findByPk(req.params.id);
         if (!article) return res.status(404).json({ error: 'Article non trouvé.' });
 
+        // Met à jour l'article avec les nouvelles données
         await article.update({ name, category, quantity, price, stockThreshold });
         res.json(article);
     } catch (err) {
@@ -75,9 +83,10 @@ router.put('/:id', authMiddleware, async (req, res) => {
     }
 });
 
-// Supprimer un article (protégé)
+// Route protégée : Supprimer un article
 router.delete('/:id', authMiddleware, async (req, res) => {
     try {
+        // Trouve et supprime un article par son ID
         const article = await Article.findByPk(req.params.id);
         if (!article) return res.status(404).json({ error: 'Article non trouvé.' });
 
@@ -87,10 +96,5 @@ router.delete('/:id', authMiddleware, async (req, res) => {
         res.status(500).json({ error: 'Erreur lors de la suppression de l\'article.' });
     }
 });
-
-// Obtenir les articles en dessous du seuil
-
-
-
 
 module.exports = router;

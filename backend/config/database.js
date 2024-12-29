@@ -12,6 +12,7 @@ const sequelize = new Sequelize(
     }
 );
 
+// Vérifie si la connexion à la base de données est réussie
 sequelize.authenticate()
     .then(() => {
         console.log('Connexion réussie à la base de données MySQL.');
@@ -19,6 +20,5 @@ sequelize.authenticate()
     .catch(err => {
         console.error('Erreur de connexion à la base de données :', err);
     });
-
 
 module.exports = sequelize;
