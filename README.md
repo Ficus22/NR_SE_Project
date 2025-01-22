@@ -1,5 +1,5 @@
 # NR_SE
-Node &amp; React and Software Engineering project :https://github.com/Ficus22/NR_SE_Project
+Node &amp; React and Software Engineering project :
 
 Maiaroca = Maïa
 
